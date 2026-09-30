@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grand Line Log | fã-site de One Piece</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="#top" class="logo">Grand Line Log</a>
+    <div>
+      <a href="#mapa">Mapa</a>
+      <a href="#tripulacao">Tripulação</a>
+      <a href="#quiz">Quiz</a>
+      <button id="tema" aria-label="Alternar tema">◐</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <svg class="scene" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <circle cx="1080" cy="230" r="90" fill="#ffb627"/>
+      <circle cx="1080" cy="230" r="130" fill="#ffb627" opacity=".18"/>
+      <ellipse cx="260" cy="150" rx="110" ry="24" fill="#fff" opacity=".8"/>
+      <ellipse cx="330" cy="135" rx="70" ry="22" fill="#fff" opacity=".8"/>
+      <ellipse cx="820" cy="90" rx="90" ry="18" fill="#fff" opacity=".6"/>
+      <path d="M0 400 Q180 370 360 400 T720 400 T1080 400 T1440 400 V600 H0Z" fill="#12708a"/>
+      <g class="ship">
+        <rect x="688" y="250" width="6" height="140" fill="#4b2e14"/>
+        <path d="M694 262 Q790 310 694 380 Z" fill="#fff"/>
+        <path d="M688 282 Q610 320 688 372 Z" fill="#eef2f4"/>
+        <polygon points="694,250 694,274 724,262" fill="#e4572e"/>
+        <path d="M610 392 H820 Q800 440 760 440 H670 Q630 440 610 392Z" fill="#8a5a2b"/>
+        <rect x="606" y="384" width="218" height="10" fill="#4b2e14"/>
+      </g>
+      <path class="w1" d="M-720 470 Q-630 430 -540 470 T-360 470 T-180 470 T0 470 T180 470 T360 470 T540 470 T720 470 T900 470 T1080 470 T1260 470 T1440 470 T1620 470 T1800 470 T2160 470 V600 H-720Z" fill="#0b4a66"/>
+      <path class="w2" d="M-720 520 Q-630 490 -540 520 T-360 520 T-180 520 T0 520 T180 520 T360 520 T540 520 T720 520 T900 520 T1080 520 T1260 520 T1440 520 T1620 520 T1800 520 T2160 520 V600 H-720Z" fill="#071f36"/>
+    </svg>
+    <div class="hero-text">
+      <h1>Grand Line Log</h1>
+      <p>Um diário de bordo de fã: explore o mapa dos mares, conheça a tripulação e descubra quem você seria no navio.</p>
+      <a class="btn" href="#mapa">Zarpar</a>
+    </div>
+    <svg class="compass" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="#071f36" stroke="#ffb627" stroke-width="4"/>
+      <g id="needle"><polygon points="50,12 58,50 42,50" fill="#e4572e"/><polygon points="50,88 58,50 42,50" fill="#fff"/></g>
+      <circle cx="50" cy="50" r="5" fill="#ffb627"/>
+    </svg>
+  </header>
+
+  <main>
+    <section id="mapa">
+      <h2>Mapa dos mares</h2>
+      <p class="sub">Clica numa região pra ver o que tem lá e quem da tripulação é de lá.</p>
+      <div class="map-wrap">
+        <svg id="mapa-svg" viewBox="0 0 800 420" role="group" aria-label="Mapa dos mares">
+          <rect width="800" height="420" rx="12" class="oceano"/>
+          <g class="reg" data-r="north" tabindex="0" role="button"><rect x="20" y="20" width="340" height="150" rx="14"/><text x="190" y="102">North Blue</text></g>
+          <g class="reg" data-r="east" tabindex="0" role="button"><rect x="440" y="20" width="340" height="150" rx="14"/><text x="610" y="102">East Blue</text></g>
+          <g class="reg" data-r="west" tabindex="0" role="button"><rect x="20" y="250" width="340" height="150" rx="14"/><text x="190" y="332">West Blue</text></g>
+          <g class="reg" data-r="south" tabindex="0" role="button"><rect x="440" y="250" width="340" height="150" rx="14"/><text x="610" y="332">South Blue</text></g>
+          <g class="reg gl" data-r="paraiso" tabindex="0" role="button"><rect x="0" y="185" width="380" height="50"/><text x="190" y="216">Paraíso</text></g>
+          <g class="reg gl" data-r="novo" tabindex="0" role="button"><rect x="420" y="185" width="380" height="50"/><text x="610" y="216">Novo Mundo</text></g>
+          <g class="reg red" data-r="red" tabindex="0" role="button"><rect x="380" y="0" width="40" height="420"/><text x="0" y="0" transform="translate(405 210) rotate(-90)">Red Line</text></g>
+        </svg>
+        <div id="painel" class="painel"></div>
+      </div>
+    </section>
+
+    <section id="tripulacao">
+      <h2>A tripulação</h2>
+      <div class="tools">
+        <input id="busca" type="search" placeholder="Buscar tripulante..." aria-label="Buscar">
+        <div class="filters" id="filters"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="quiz">
+      <h2>Quem você seria no navio?</h2>
+      <div id="quiz-box"></div>
+    </section>
+  </main>
+
+  <dialog id="modal">
+    <button class="close" id="close" aria-label="Fechar">×</button>
+    <div id="modal-body"></div>
+  </dialog>
+
+  <footer>
+    Fã-site sem fins lucrativos, feito para estudo. One Piece é criação de Eiichiro Oda (Shueisha / Toei Animation). Nenhuma imagem oficial é usada aqui.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
